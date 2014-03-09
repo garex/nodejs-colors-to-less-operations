@@ -1,10 +1,21 @@
 describe('transformToLessOperations', function() {
+  eval('var transformToLessOperations = require("..").transformToLessOperations');
 
   describe('extreme cases', function() {
 
-    it('should get base color when both colors are same');
+    it('should get base color when both colors are same', function() {
+      transformToLessOperations('#fe23ca', '#fe23ca').should.be.equal('#fe23ca; // #fe23ca');
+      transformToLessOperations('fff',     '#ffffff').should.be.equal('#ffffff; // #ffffff');
+    });
 
-    it('should throw error when bad color values provided');
+    it('should throw error when bad color values provided', function() {
+      (function(){
+        transformToLessOperations('ggg', 'ffffff');
+      }).should.throwError(/unknown/);
+      (function(){
+        transformToLessOperations('', '');
+      }).should.throwError(/unknown/);
+    });
 
   });
 
