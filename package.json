@@ -1,0 +1,31 @@
+{
+  "name": "colors-to-less-operations",
+  "version": "0.1.0",
+  "description": "Transforms colors to less operations that needs to be applied to the base color to get the desired color",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/garex/nodejs-colors-to-less-operations.git"
+  },
+  "keywords": [
+    "color",
+    "less",
+    "transformation"
+  ],
+  "author": "Alexander Ustimenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garex/nodejs-colors-to-less-operations/issues"
+  },
+  "homepage": "https://github.com/garex/nodejs-colors-to-less-operations",
+  "dependencies": {
+    "color-model": "^0.2.0",
+    "sprintf-js": "^0.0.7"
+  },
+  "devDependencies": {
+    "should": "^3.1.3",
+    "mocha": "^1.17.1"
+  }
+}
