@@ -22,30 +22,30 @@ describe('transformToLessOperations', function() {
   describe('default cases', function() {
 
     it('should get only positive spin when positive hue difference', function() {
-      transformToLessOperations('#fe23ca', '#fe23a5').should.be.equal('spin(#fe23ca, 10%); // #fe23ca');
-      transformToLessOperations('#abc',    '#aab0cc').should.be.equal('spin(#aabbcc, 20%); // #aab0cc');
+      transformToLessOperations('#fe23ca', '#fe23a5').should.be.equal('spin(#fe23ca, 10); // #fe23a5');
+      transformToLessOperations('#abc',    '#aab0cc').should.be.equal('spin(#aabbcc, 20); // #aab0cc');
     });
 
     it('should get only negative spin when negative hue difference', function() {
-      transformToLessOperations('#fe23ca', '#fe23ef').should.be.equal('spin(#fe23ca, -10%); // #fe23ef');
-      transformToLessOperations('#abc',    '#aac6cc').should.be.equal('spin(#aabbcc, -20%); // #aac6cc');
+      transformToLessOperations('#fe23ca', '#fb23fe').should.be.equal('spin(#fe23ca, -15); // #fb23fe');
+      transformToLessOperations('#abc',    '#aac6cc').should.be.equal('spin(#aabbcc, -19); // #aac6cc');
     });
 
     it('should get only saturate when positive saturation difference', function() {
-      transformToLessOperations('#fe23ca', '#ff22cb').should.be.equal('saturate(#fe23ca, 10%); // #ff22cb');
-      transformToLessOperations('#abc',    '#9cbbda').should.be.equal('saturate(#aabbcc, 20%); // #9cbbda');
-      transformToLessOperations('#ddd',    '#e7d3d3').should.be.equal('saturate(#dddddd, 30%); // #e7d3d3');
+      transformToLessOperations('#c85bb0', '#d350b6').should.be.equal('saturate(#c85bb0, 10%); // #d350b6');
+      transformToLessOperations('#abc',    '#9cbbda').should.be.equal('saturate(#aabbcc, 21%); // #9cbbda');
+      transformToLessOperations('#ddd',    '#e7d3d3').should.be.equal('saturate(#dddddd, 29%); // #e7d3d3');
     });
 
     it('should get only desaturate when negative saturation difference', function() {
       transformToLessOperations('#fe23ca', '#f32ec4').should.be.equal('desaturate(#fe23ca, 10%); // #f32ec4');
-      transformToLessOperations('#abc',    '#b8bbbe').should.be.equal('desaturate(#aabbcc, 20%); // #b8bbbe');
+      transformToLessOperations('#abc',    '#b8bbbe').should.be.equal('desaturate(#aabbcc, 21%); // #b8bbbe');
     });
 
     it('should get only lighten when positive lightness difference', function() {
       transformToLessOperations('#fe23ca', '#fe56d6').should.be.equal('lighten(#fe23ca, 10%); // #fe56d6');
-      transformToLessOperations('#abc',    '#eaeef2').should.be.equal('lighten(#aabbcc, 20%); // #eaeef2');
-      transformToLessOperations('#ddd',    '#ffffff').should.be.equal('lighten(#dddddd, 30%); // #ffffff');
+      transformToLessOperations('#abc',    '#b0c0d0').should.be.equal('lighten(#aabbcc, 2%); // #b0c0d0');
+      transformToLessOperations('#ddd',    '#fcfcfc').should.be.equal('lighten(#dddddd, 12%); // #fcfcfc');
     });
 
     it('should get only darken when negative lightness difference', function() {
@@ -55,9 +55,9 @@ describe('transformToLessOperations', function() {
     });
 
     it('should get all needed operations when all 3 components differs', function() {
-      transformToLessOperations('#fe23ca', '#ff55ba').should.be.equal('spin(saturate(lighten(#fe23ca, 10%), 10%), 10%); // #ff55ba');
-      transformToLessOperations('#abc',    '#828c8e').should.be.equal('spin(desaturate(darken(#aabbcc, 20%), 20%), -20%); // #828c8e');
-      transformToLessOperations('#ddd',    '#ebe9e9').should.be.equal('spin(saturate(lighten(#dddddd, 5%), 5%), 5%); // #ebe9e9');
+      transformToLessOperations('#fe23ca', '#ff55ba').should.be.equal('spin(saturate(lighten(#fe23ca, 10%), 1%), 10); // #ff55ba');
+      transformToLessOperations('#abc',    '#828c8e').should.be.equal('spin(desaturate(darken(#aabbcc, 20%), 20%), -20); // #828c8e');
+      transformToLessOperations('#ddd',    '#ebe9e9').should.be.equal('saturate(lighten(#dddddd, 5%), 5%); // #ebe9e9');
     });
 
   });
