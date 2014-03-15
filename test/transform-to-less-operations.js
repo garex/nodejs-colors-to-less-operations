@@ -23,7 +23,7 @@ describe('transformToLessOperations', function() {
 
     it('should get only positive spin when positive hue difference', function() {
       transformToLessOperations('#fe23ca', '#fe23a5').should.be.equal('spin(#fe23ca, 10); // #fe23a5');
-      transformToLessOperations('#abc',    '#aab0cc').should.be.equal('spin(#aabbcc, 19); // #aab0cc');
+      transformToLessOperations('#abc',    '#aab0cc').should.be.equal('spin(#aabbcc, 20); // #aab0cc');
     });
 
     it('should get only negative spin when negative hue difference', function() {
@@ -32,7 +32,7 @@ describe('transformToLessOperations', function() {
     });
 
     it('should get only saturate when positive saturation difference', function() {
-      transformToLessOperations('#fe23ca', '#ff22cb').should.be.equal('saturate(#fe23ca, 1%); // #ff22cb');
+      transformToLessOperations('#c85bb0', '#d350b6').should.be.equal('saturate(#c85bb0, 10%); // #d350b6');
       transformToLessOperations('#abc',    '#9cbbda').should.be.equal('saturate(#aabbcc, 21%); // #9cbbda');
       transformToLessOperations('#ddd',    '#e7d3d3').should.be.equal('saturate(#dddddd, 29%); // #e7d3d3');
     });
@@ -44,7 +44,7 @@ describe('transformToLessOperations', function() {
 
     it('should get only lighten when positive lightness difference', function() {
       transformToLessOperations('#fe23ca', '#fe56d6').should.be.equal('lighten(#fe23ca, 10%); // #fe56d6');
-      transformToLessOperations('#abc',    '#adbece').should.be.equal('lighten(#aabbcc, 1%); // #adbece');
+      transformToLessOperations('#abc',    '#b0c0d0').should.be.equal('lighten(#aabbcc, 2%); // #b0c0d0');
       transformToLessOperations('#ddd',    '#fcfcfc').should.be.equal('lighten(#dddddd, 12%); // #fcfcfc');
     });
 
@@ -55,9 +55,9 @@ describe('transformToLessOperations', function() {
     });
 
     it('should get all needed operations when all 3 components differs', function() {
-      transformToLessOperations('#fe23ca', '#ff55ba').should.be.equal('spin(saturate(lighten(#fe23ca, 10%), 10%), 10%); // #ff55ba');
-      transformToLessOperations('#abc',    '#828c8e').should.be.equal('spin(desaturate(darken(#aabbcc, 20%), 20%), -20%); // #828c8e');
-      transformToLessOperations('#ddd',    '#ebe9e9').should.be.equal('spin(saturate(lighten(#dddddd, 5%), 5%), 5%); // #ebe9e9');
+      transformToLessOperations('#fe23ca', '#ff55ba').should.be.equal('spin(saturate(lighten(#fe23ca, 10%), 1%), 10); // #ff55ba');
+      transformToLessOperations('#abc',    '#828c8e').should.be.equal('spin(desaturate(darken(#aabbcc, 20%), 20%), -20); // #828c8e');
+      transformToLessOperations('#ddd',    '#ebe9e9').should.be.equal('saturate(lighten(#dddddd, 5%), 5%); // #ebe9e9');
     });
 
   });
