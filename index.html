@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <link href="https://fonts.googleapis.com/css?family=Chivo:900" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
   <!--[if lt IE 9]>
@@ -21,6 +22,25 @@
           <h1>Colors to less operations (with help of nodejs)</h1>
           <h2>Transforms colors to less operations that needs to be applied to the base color to get the desired color</h2>
         </header>
+
+        <hr>
+
+        <section id="app">
+           <h1>Put in first two columns colors: source & desired, then press "Go"</h1>
+        
+           <form id="transformation">
+           
+	           <div class="textareas"><textarea
+	             id="sourceColors"  placeholder="Source colors in format #aabbcc, for example: #ffccee"></textarea><textarea
+	             id="desiredColors" placeholder="Desired colors in format #aabbcc, for example: #ffccbb"></textarea><textarea
+	             id="result"        placeholder="Result, in LESS format, for example: spin(darken(#ffccee, 3%), -305); // #ffccbb"></textarea></div>
+	           
+	           <div class="submit"><input type="submit" value="Go" /></div>
+	           
+	           <p><em>Delimit colors in both columns by enter! <a id="for-example" href="#for-example">For example</a>.</em></p>
+           </form>
+           
+        </section>
 
         <hr>
 
@@ -76,6 +96,8 @@ dependentAsOperations = c2o.transformToLessOperations(base, dependent);
           pageTracker._trackPageview();
           } catch(err) {}
         </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/lib.js"></script>
         <script type="text/javascript" src="javascripts/main.js"></script>
      </div>
    </div>

@@ -1,0 +1,43 @@
+form .textareas {
+  text-align: right;	
+}
+
+form textarea {
+	width: 100px;
+	height: 300px;
+	border: none;
+	padding: 6px;
+	font-family: sans serif;
+	font-size: 110%;
+}
+
+form textarea#desiredColors {
+	border: 1px solid gainsboro;
+	border-top: none;
+	border-bottom: none;
+}
+
+form textarea#result {
+	width: 675px;
+}
+ 
+form .submit {
+	text-align: right;
+	margin-top: 15px;
+}
+
+form .submit input {
+	font-size: 200%;
+	font-weight: bold;
+	padding: 10px 50px;
+}
+
+#app {
+	width:       960px;
+	margin-left: -160px;
+}
+
+#for-example {
+	text-decoration: none;
+	border-bottom:1px dashed;  
+}
