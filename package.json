@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/garex/nodejs-colors-to-less-operations",
   "dependencies": {
-    "color-model": "^0.2.0",
+    "color-model": "^0.2.1",
     "sprintf-js": "^0.0.7"
   },
   "devDependencies": {
