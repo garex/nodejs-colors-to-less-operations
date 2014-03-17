@@ -1,6 +1,6 @@
 {
   "name": "colors-to-less-operations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Transforms colors to less operations that needs to be applied to the base color to get the desired color",
   "scripts": {
     "test": "make test"
